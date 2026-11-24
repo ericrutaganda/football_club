@@ -1,0 +1,6 @@
+<?php $loggedIn=!empty($_SESSION['user']); ?>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title><?= e($title ?? APP_NAME) ?> | <?= e(APP_NAME) ?></title><link rel="stylesheet" href="public/css/style.css"></head><body>
+<?php if($loggedIn): ?><aside class="sidebar"><a class="brand" href="index.php?route=dashboard">⚽ Club Manager</a><nav><a href="index.php?route=dashboard">Dashboard</a><a href="index.php?route=players">Players</a><a href="index.php?route=matches">Matches</a><a href="index.php?route=trainings">Training</a><a href="index.php?route=account/password">Change password</a></nav><div class="side-bottom"><span><?= e($_SESSION['user']['username']) ?></span><form method="post" action="index.php?route=logout"><?= csrf_field() ?><button class="link-button">Sign out</button></form></div></aside><main class="main"><header class="topbar"><div><span class="eyebrow">CLUB ADMINISTRATION</span><h1><?= e($title ?? '') ?></h1></div><span class="user-pill">● <?= e($_SESSION['user']['role']) ?></span></header>
+<?php if($m=flash('success')): ?><div class="alert success"><?= e($m) ?></div><?php endif; ?><?php if($m=flash('error')): ?><div class="alert danger"><?= e($m) ?></div><?php endif; ?>
+<?php else: ?><main class="auth-page">
+<?php endif; ?>

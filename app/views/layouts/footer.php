@@ -1,0 +1,1 @@
+<?php if($loggedIn ?? false): ?></main><?php else: ?></main><?php endif; ?><script src="public/js/app.js"></script></body></html>

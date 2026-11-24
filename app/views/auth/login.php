@@ -1,0 +1,3 @@
+<section class="auth-card"><div class="logo-mark">⚽</div><span class="eyebrow">WELCOME BACK</span><h2>Sign in to your club</h2><p class="muted">Manage your players, fixtures and training in one place.</p>
+<?php if($m=flash('error')): ?><div class="alert danger"><?= e($m) ?></div><?php endif; ?>
+<form method="post" action="index.php?route=login" class="stack"><?= csrf_field() ?><label>Username or email<input name="username" required autocomplete="username" placeholder="Your username or email"></label><label>Password<input type="password" name="password" required autocomplete="current-password" placeholder="Your password"></label><button class="btn full">Sign in</button></form></section>
